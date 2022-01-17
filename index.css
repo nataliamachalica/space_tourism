@@ -9,7 +9,7 @@
     --clr-white: 0 0% 100%;
 
     /* font-sizes */
-    --fs-900: clamp(5rem, 8vm + 1rem, 9.375rem);
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
     --fs-800: 6.25rem;
     --fs-700: 3.5rem;
     --fs-600: 2rem;
@@ -135,6 +135,10 @@ select {
     gap: var(--gap, 1rem);
 }
 
+.body-title {
+	display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
 	margin-top: 1rem;
 }
@@ -147,14 +151,24 @@ select {
 
 .grid-container {
 	display: grid;
+	text-align: center;
+	place-items: center;
+	place-content: center;
+	row-gap: 10%;
+	padding-inline: 1rem;
 }
 
-@media (min-width: 45rem ) {
+.grid-container * {
+	max-width: 50ch;
+}
+
+@media (min-width: 45em ) {
 	.grid-container {
+		text-align: left;
 		column-gap: var(--container-gap, 2rem);
-        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) 2em;
-	    /* short for 2em minmax(0, 40rem) minmax(0, 40rem) 2em; */
-	}
+        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
+
+    }
 
 	.grid-container > *:first-child {
         grid-column: 2;
@@ -163,6 +177,11 @@ select {
     .grid-container > *:last-child {
         grid-column: 3;
     }
+
+	.grid-container--home {
+        padding-bottom: max(6rem, 20vh);
+		align-items: end;
+	}
 }
 
 /* for screen readers */
@@ -235,6 +254,7 @@ select {
 /* ------------------- */
 
 .large-button {
+	font-size: 2rem;
 	display: inline-grid;
 	position: relative;
 	padding: 0 2rem;
@@ -341,4 +361,32 @@ select {
 
 .number-indicator > .active {
 	color: hsl( var(--clr-dark));
+}
+
+/* ---------------------------- */
+/* Page specific background     */
+/* ---------------------------- */
+
+body {
+	background-size: cover;
+	background-position: bottom center;
+}
+
+/* home */
+
+.home {
+	background-image: url(./assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+	.home {
+		background-image: url(./assets/home/background-home-tablet.jpg);
+	}
+}
+
+@media (min-width: 45em) {
+	.home {
+		background-image: url(./assets/home/background-home-desktop.jpg);
+	}
+
 }
