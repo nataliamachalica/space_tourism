@@ -202,7 +202,6 @@ select {
 	place-items: center;
 	text-decoration: none;
 	border-radius: 50%;
-	text-decoration: none;
 }
 
 .large-button::after {
@@ -260,4 +259,45 @@ select {
 
 .tab-list {
 	--gap: 3rem;
+}
+
+.dot-indicator > * {
+	cursor: pointer;
+	border: 0;
+	border-radius: 50%;
+	aspect-ratio: 1;
+	padding: .5em;
+	background-color: hsl( var(--clr-white) / .25) ;
+} /*all direct children*/
+
+.dot-indicator > *:hover,
+.dot-indicator > *:focus {
+	background-color: hsl( var(--clr-white) / .5) ;
+}
+
+.dot-indicator > [aria-selected="true"] {
+    background-color: hsl( var(--clr-white) / 1);
+}
+
+.number-indicator > * {
+	display: block;
+	cursor: pointer;
+	border: solid 0.1em hsl( var(--clr-white));
+	border-radius: 50%;
+	margin: 1em;
+	width: 4em;
+	height: 4em;
+	text-align: center;
+	padding: 1em;
+	text-decoration: none;
+} /*all direct children*/
+
+.number-indicator > *:hover,
+.number-indicator > *:focus {
+	background-color: hsl( var(--clr-white)) ;
+	color: hsl( var(--clr-dark) )
+}
+
+.number-indicator > .active {
+	color: hsl( var(--clr-dark));
 }

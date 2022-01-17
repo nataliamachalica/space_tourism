@@ -119,7 +119,7 @@
                         bg-white">explore</a>
                     </div>
 
-                    <div style="margin-bottom: 50vh">
+                    <div class="flow" style="margin-bottom: 50vh; --flow-space: 4rem">
                         <!-- tabs -->
                         <div class="tab-list underline-indicator flex">
                             <button aria-selected="true" class="uppercase ff-sans-cond text-accent bg-dark letter-spacing-2">Moon</button>
@@ -128,12 +128,20 @@
                         </div>
 
                         <!-- dots -->
-
+                        <div class="dot-indicator flex">
+                            <button aria-selected="true"><span class="sr-only">slide</span></button>
+                            <button aria-selected="false"><span class="sr-only">slide</span></button>
+                            <button aria-selected="false"><span class="sr-only">slide</span></button>
+                        </div>
                     <!-- numbers -->
+                        <div class="number-indicator">
+                            <a href="#" class="active ff-serif fs-400 text-dark bg-white"><span>1</span></a>
+                            <a href="#" class="ff-serif fs-400 text-white bg-dark"><span>2</span></a>
+                            <a href="#" class="ff-serif fs-400 text-white bg-dark"><span>3</span></a>
+                        </div>
                     </div>
                 </div>
                 </section>
-
 		</div>
 		<script src="index.js"></script>
 	</body>
