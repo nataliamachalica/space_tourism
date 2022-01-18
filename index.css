@@ -167,7 +167,7 @@ select {
 	.grid-container {
 		text-align: left;
 		column-gap: var(--container-gap, 2rem);
-        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
+        grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
 
     }
 
@@ -284,23 +284,38 @@ select {
 	transform: scale(1.5);
 }
 
+/* primary-header */
+
+.logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+	justify-content: space-between;
+	align-items: center;
+}
+
 .primary-navigation {
-    --underline-gap: 2rem;
+	--gap: clamp(1.5rem, 5vw, 3.5rem);
+    --underline-gap: 2em;
     list-style: none;
-    padding: 0;
+    padding: 0 2.5em;
     margin: 0;
     background: hsl( var(--clr-dark) / 0.95);
     /* backdrop-filter: blur(1.5rem); */
 }
-.mobile-nav-toggle{
-    display: none;
+
+.primary-navigation a {
+    text-decoration: none;
 }
 
-@supports (backdrop-filter: blur(1rem)) {
-    .primary-navigation {
-        background: hsl( var(--clr-white) / 0..05);
-        backdrop-filter: blur(1.5rem);
-    }
+.primary-navigation a > span {
+    font-weight: 700;
+    margin-right: .5em;
+}
+
+.mobile-nav-toggle{
+    display: none;
 }
 
 @media (max-width: 45rem) {
@@ -344,13 +359,23 @@ select {
 	}
 }
 
-.primary-navigation a {
-    text-decoration: none;
+@media (min-width: 35em) and (max-width: 45em) {
+
+	.primary-navigation {
+		padding-inline: 3rem;
+	}
+
+	.primary-navigation a > span {
+		display: none;
+	}
+
 }
 
-.primary-navigation a > span {
-    font-weight: 700;
-    margin-right: .5em;
+@supports (backdrop-filter: blur(1rem)) {
+    .primary-navigation {
+        background: hsl( var(--clr-white) / 0..05);
+        backdrop-filter: blur(1.5rem);
+    }
 }
 
 .underline-indicator > * {
@@ -433,11 +458,12 @@ body {
 
 @media (min-width: 35rem) {
 	.home {
+		background-position: center center;
 		background-image: url(./assets/home/background-home-tablet.jpg);
 	}
 }
 
-@media (min-width: 45em) {
+@media (min-width: 45rem) {
 	.home {
 		background-image: url(./assets/home/background-home-desktop.jpg);
 	}
