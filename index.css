@@ -496,8 +496,9 @@ body {
 	padding-bottom: 3rem;
 }
 
-.grid-container * {
+.grid-container p:not([class]) {
 	max-width: 50ch;
+	/* paragraph which has not a class*/
 }
 
 .numbered-title {
@@ -587,8 +588,7 @@ body {
     }
 
 	.destination-meta {
-		--gap: 6rem;
+		--gap: min(5vw, 6rem);
 		justify-content: start;
-
     }
 }
