@@ -38,15 +38,33 @@ tabs.forEach((tab) => {
 function changeTabPanel(e) {
   const targetTab = e.target;
   const targetPanel = targetTab.getAttribute('aria-controls');
+  const targetImage = targetTab.getAttribute('data-image')
 
   const tabContainer = targetTab.parentNode;
   const mainContainer = tabContainer.parentNode;
+
+  tabContainer
+    .querySelector('[aria-selected="true"]')
+    .setAttribute('aria-selected', false);
+
+  targetTab.setAttribute('aria-selected', true);
 
   mainContainer
     .querySelectorAll('[role="tabpanel"]')
     .forEach((panel) => panel.setAttribute("hidden", true));
 
-  mainContainer.querySelector([`#${targetPanel}`]).removeAttribute('hidden');
+  mainContainer
+    .querySelector([`#${targetPanel}`])
+    .removeAttribute('hidden');
+
+  mainContainer
+    .querySelectorAll('picture')
+    .forEach((picture) => picture.setAttribute("hidden", true));
+
+  mainContainer
+    .querySelector([`#${targetImage}`])
+    .removeAttribute("hidden");
+
 
   //console.log(mainContainer);
 }
