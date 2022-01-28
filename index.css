@@ -446,6 +446,7 @@ select {
 	text-align: center;
 	padding: 1em;
 	text-decoration: none;
+	
 } /*all direct children*/
 
 .number-indicator > *:hover,
@@ -724,11 +725,8 @@ body {
         grid-column: 3;
     }
 
-
-
-	.grid-container--destination > picture,
-	.grid-container--crew > picture {
-		max-width: 90%;
+	.grid-container--destination > picture {
+		max-width: 100%;
 		padding-right: 2em;
     }
 
@@ -781,7 +779,6 @@ body {
 	padding: 0 1rem;
 }
 
-
 @media (min-width: 35em) {
 
 	.numbered-title {
@@ -790,7 +787,7 @@ body {
 	}
 
 	.technology-info {
-		align-content: start;
+        flex-direction: row;
         justify-content: space-evenly;
 }
 
@@ -804,48 +801,34 @@ body {
     }
 }
 
-@media (min-width: 45em ) {
+@media (min-width: 44em ) {
 
 	.grid-container {
-		text-align: left;
+		text-align: center;
 		column-gap: var(--container-gap, 2rem);
         grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
     }
 
 	.grid-container--technology {
         padding-bottom: max(6rem, 20vh);
-		align-items: end;
+		align-items: center;
 	}
 
-	.grid-container--technology > *:first-child {
-        grid-column: 2;
-    }
-
-    .grid-container--technology > *:last-child {
-        grid-column: 3;
-    }
-
-	.grid-container--technology > img {
+	.grid-container--technology > picture {
 		max-width: 90%;
 		padding-right: 2em;
     }
 
 	.technology-info {
 		--gap: min(5vw, 6rem);
-		justify-content: start;
+		text-align: justify;
     }
 
 	.grid-container--technology {
-        justify-items: start;
-        grid-template-areas: 
+        grid-template-areas:
 		'. title title .'
 		'tabs content image image'
 		'. . . .';
-    }
-
-    .grid-container--technology > .number-indicator {
-		display: inline-flex;
-        flex-direction: column;
     }
 
     .grid-container--technology > picture {
